@@ -5,6 +5,9 @@ from django.utils import timezone
 class Type(models.Model):
     name = models.CharField(max_length=255)
 
+    def __str__(self) -> str:
+        return str(self.name)
+
 
 class Order(models.Model):
     title = models.CharField(max_length=255)
