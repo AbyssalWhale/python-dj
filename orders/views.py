@@ -1,5 +1,7 @@
+#render is used to render templates
 from django.shortcuts import render
 from django.http import HttpResponse
+from .models import Order
 
 # Create your views here.
 
@@ -7,5 +9,8 @@ from django.http import HttpResponse
 
 
 def index(request):
-
-    return HttpResponse("Hello from orders view!!!")
+    #Allow to get all object with this type from DB
+    orders = Order.objects.all()
+    MY_RENDER = render(request, "orders/index.html", {"orders" : orders})
+    return MY_RENDER
+    #return HttpResponse(output)
