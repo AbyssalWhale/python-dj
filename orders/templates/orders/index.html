@@ -1,25 +1,25 @@
 <h1>BBA - Big Boss Auto</h1>
 {% extends 'templates/base.html' %}
 
-    {% block content %}
-        <table class="table table-bordered table-hover">
-            <thead>
-                <tr>
-                    <th>Title</th>
-                    <th>Quantity</th>
-                    <th>Delivery Date</th>
-                    <th>Delivery Address</th>
-                </tr>
-            </thead>
-            <tbody>
-                {% for order in orders %}
-                    <tr>
-                        <td>{{ order.title }}</td>
-                        <td>{{ order.quantity }}</td>
-                        <td>{{ order.date_delivery }}</td>
-                        <td>{{ order.delivery_address }}</td>
-                    </tr>
-                {% endfor %}
-            </tbody>
-    {% endblock  %}
+{% block content %}
+<table class="table table-bordered table-hover">
+    <thead>
+        <tr>
+            <th>Title</th>
+            <th>Quantity</th>
+            <th>Delivery Date</th>
+            <th>Delivery Address</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for order in orders %}
+        <tr>
+            <td><a href="{% url 'orders:detail' order.id %}">{{ order.title }}</a></td>
+            <td>{{ order.quantity }}</td>
+            <td>{{ order.date_delivery }}</td>
+            <td>{{ order.delivery_address }}</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+    {% endblock %}
 </table>
