@@ -1,6 +1,6 @@
 #render is used to render templates
-from django.shortcuts import render
-from django.http import HttpResponse
+from django.shortcuts import render, get_object_or_404
+from django.http import HttpResponse, Http404
 from .models import Order
 
 # Create your views here.
@@ -16,6 +16,11 @@ def index(request):
     #return HttpResponse(output)
 
 def details(request, order_id):
-    order = Order.objects.get(id=order_id)
-    print(order)
+    # try: 
+    #     order = Order.objects.get(id=order_id)
+    #     print(order)
+    #     return render(request, "orders/details.html", {"order" : order})
+    # except Order.DoesNotExist:
+    #     raise Http404()
+    order = get_object_or_404(Order, id=order_id)
     return render(request, "orders/details.html", {"order" : order})
