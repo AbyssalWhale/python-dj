@@ -15,8 +15,14 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
+from api.models import OrderResource
+from . import views
+
+orderd_resource = OrderResource()
 
 urlpatterns = [
+    path("", views.home),
     path('admin/', admin.site.urls),
-    path("orders/", include("orders.urls"))
+    path("orders/", include("orders.urls")),
+    path("api/", include(orderd_resource.urls))
 ]

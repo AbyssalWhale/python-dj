@@ -1,0 +1,14 @@
+{% extends 'templates/base.html' %}
+
+{% block content %}
+<dl>
+    <dt>Title</dt>
+    <dd>{{ order.title }}</dd>
+    <dt>Quantity</dt>
+    <dd>{{ order.quantity }}</dd>
+    <dt>Delivery Address</dt>
+    <dd>{{ order.delivery_address }}</dd>
+    <dt>Delivery Date</dt>
+    <dd>{{ order.date_delivery }}</dd>
+</dl>
+{% endblock %}
