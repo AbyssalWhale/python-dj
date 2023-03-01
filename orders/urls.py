@@ -5,5 +5,7 @@ from . import views
 # movies/
 # moview/1/details
 urlpatterns = [
-    path("", views.index, name="index")
+    path("", views.index, name="orders_index"),
+    #<> - to use parametr
+    path('<int:order_id>', views.details, name='order_detail')
 ]

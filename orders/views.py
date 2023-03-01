@@ -14,3 +14,8 @@ def index(request):
     MY_RENDER = render(request, "orders/index.html", {"orders" : orders})
     return MY_RENDER
     #return HttpResponse(output)
+
+def details(request, order_id):
+    order = Order.objects.get(id=order_id)
+    print(order)
+    return render(request, "orders/details.html", {"order" : order})
